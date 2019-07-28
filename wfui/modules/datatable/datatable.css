@@ -1,0 +1,52 @@
+.datatable .operation-child {
+    word-break: keep-all;
+    white-space: nowrap;
+
+}
+.datatable .datatable-cell {
+    line-height: 28px;
+    position: relative;
+    overflow: hidden;
+}
+.datatable table{
+    width: 100%
+}
+.datatable th{
+    height: 32px;
+    font-size: 14px;
+    border-bottom: 1px solid #e2e2e2;
+    background: #f5f5f5;
+    color: #666;
+    font-weight: 400;
+}
+.datatable td{
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 7px 0px 7px 0px !important;
+    border-top: none;
+    color: #666
+}
+
+
+.datatable .fixed-table-left{
+    position: absolute;
+    top:0;
+    left: 0;
+    box-shadow: 0px 0px 12px #ccc;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+
+.datatable .fixed-table-right{
+    position: absolute;
+    top:0;
+    right: 0;
+    box-shadow: -1px 0px 12px #ccc;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.datatable tbody tr:hover {
+    background-color: #eee;
+}

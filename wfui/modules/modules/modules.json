@@ -1,0 +1,40 @@
+{
+    "modules": {
+        "fastbootExpands": "fastboot-expands",
+        "formSelects": "formSelects-v4",
+        "req": "async-request",
+        "datatable": "datatable/datatable",
+        "richText": "rich-text",
+        "SkuTable": "sku-table",
+        "WFUI": "WFUI",
+        "sysTools": "sys-tools",
+        "uploadTools": "upload-tools",
+        "excelTools": "excel-tools",
+        "fupload":"upload",
+        "regionSelector":"region/region-selector",
+        "region": "region/region",
+        "cascadeSelector":"cascade-selector",
+        "citySelector":"city-selector",
+        "navbar": "navbar/navbar"
+    },
+    "plugin": {
+        "treetable": "treetable/treetable",
+        "iconPicker": "lay-picker/iconPicker",
+        "authtree": "authtree/authtree",
+        "formSelects": "formSelects/formSelects-v4",
+        "spop": "spop/spop",
+        "wangEditor": "wangEditor/wangEditor.min",
+        "cropper": "cropper/cropper",
+        "croppers": "cropper/croppers",
+        "step": "step/step",
+        "echarts":"echarts/echarts",
+        "echartsTheme":"echarts/echartsTheme",
+        "cascader":"cascader/cascader",
+        "QRCode":"qrcode/qrcode.min",
+        "excel":"excel/excel",
+        "fileSaver":"excel/fileSaver",
+        "xlsx":"excel/xlsx",
+        "COS":"cos/cos.min",
+        "dropdown":"dropdown/dropdown"
+    }
+}
