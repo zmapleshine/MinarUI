@@ -20,11 +20,11 @@ Mac 平台参考：https://www.jianshu.com/p/622ad36ee020
 node_mirror: https://npm.taobao.org/mirrors/node/
 npm_mirror: https://npm.taobao.org/mirrors/npm/
 ```
-安装并使用 NodeJS 8.17.0
+安装并使用 NodeJS 12.16.3
 
 ```shell script
-nvm install 8.17.0
-nvm use 8.17.0
+nvm install 12.16.3
+nvm use 12.16.3
 ```
 
 ### 开始构建
@@ -33,6 +33,7 @@ npm install
 npm install gulp -g
 gulp build
 ````
+最终会压缩编译js和css 到根目录dist文件夹下
 
 ### 调试
 ```
@@ -40,6 +41,5 @@ gulp run
 ```
 或映射目录到 Nginx
 
-最终会压缩编译js和css 到根目录dist文件夹下
 
 
