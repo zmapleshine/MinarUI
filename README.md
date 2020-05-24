@@ -10,7 +10,8 @@ WFUI 是基于 Layui 二次封装的面向后端人员的前端构建框架，�
 
 建议安装 nvm 来管理 NodeJS版本
 
-下载地址：https://github.com/coreybutler/nvm-windows/releases
+Windows 平台下载地址：https://github.com/coreybutler/nvm-windows/releases
+Mac 平台参考：https://www.jianshu.com/p/622ad36ee020
 
 配置中国大陆地区镜像:
 打开 nvm 安装目录，编辑 setting.txt，增加如下两行：
