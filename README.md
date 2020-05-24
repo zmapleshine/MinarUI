@@ -1,3 +1,5 @@
+[![ReadTheDocs][doc-img]][doc] [![Build Status][ci-img]][ci] [![Coverage Status][cov-img]][cov] [![FOSSA Status][fossa-img]][fossa]
+
 # WFUI
 ## 介绍
 
@@ -11,6 +13,7 @@ WFUI 是基于 Layui 二次封装的面向后端人员的前端构建框架，�
 建议安装 nvm 来管理 NodeJS版本
 
 Windows 平台下载地址：https://github.com/coreybutler/nvm-windows/releases
+
 Mac 平台参考：https://www.jianshu.com/p/622ad36ee020
 
 配置中国大陆地区镜像:
