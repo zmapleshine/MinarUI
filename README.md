@@ -1,4 +1,3 @@
-[![ReadTheDocs][doc-img]][doc] [![Build Status][ci-img]][ci] [![Coverage Status][cov-img]][cov] [![FOSSA Status][fossa-img]][fossa]
 
 # WFUI
 ## 介绍
@@ -37,6 +36,13 @@ npm install gulp -g
 gulp build
 ````
 最终会压缩编译js和css 到根目录dist文件夹下
+
+因本地Node环境问题导致打包出错，可下载打包好的 node_modules 压缩包，解压到项目根目录下：
+
+包下载链接: https://pan.baidu.com/s/1d-ngnQ3FquhBJVKgQOWnPg
+
+提取码: vdg5
+
 
 ### 调试
 ```
