@@ -1,5 +1,8 @@
+# WFUI 
 
-# WFUI
+[![Build Status](https://travis-ci.org/fbackend/WFUI.svg?branch=master)](https://travis-ci.org/fbackend/WFUI)
+![Language](https://img.shields.io/badge/language-JavaScript-orange.svg)
+
 ## 介绍
 
 WFUI 是基于 Layui 二次封装的面向后端人员的前端构建框架，基本采用纯 js开发构建。
