@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fbackend/WFUI.svg?branch=master)](https://travis-ci.org/fbackend/WFUI)
 ![Language](https://img.shields.io/badge/language-JavaScript-orange.svg)
+![Language](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## 介绍
 
