@@ -67,7 +67,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                 queryParam: {pageIndex: this.pageIndex || 1, pageSize: this.pageSize || 20},
 
             };
-            const layuiFormElements = ["select","checkbox","radio","switch"];
+            const layuiFormElements = ["select", "checkbox", "radio", "switch"];
             const LAYER_TYPE = {
                 MSG: 0,
                 PAGE: 1,
@@ -1443,10 +1443,9 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                 document.querySelectorAll("#" + this.formEl + " select").forEach(e => e.setAttribute(attrPrefix + "-select", ""));
                 document.querySelectorAll("#" + this.formEl + " input[type=checkbox]").forEach(e => {
                     e.setAttribute(attrPrefix + "-checkbox", "");
-                    e.setAttribute(attrPrefix+"-switch", "")
+                    e.setAttribute(attrPrefix + "-switch", "")
                 });
                 document.querySelectorAll("#" + this.formEl + " input[type=radio]").forEach(e => e.setAttribute(attrPrefix + "-radio", ""));
-
 
 
                 let onchangeEventArr = [];
@@ -1477,9 +1476,9 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                     onchangeEventArr.forEach(e => e());
                 };
 
-                layuiFormElements.forEach(type=>{
+                layuiFormElements.forEach(type => {
                     form.on(type, function (obj) {
-                        if (obj.elem.getAttribute(attrPrefix+"-"+type) == null) {
+                        if (obj.elem.getAttribute(attrPrefix + "-" + type) == null) {
                             return;
                         }
                         onchangeEventArr.forEach(e => e());
@@ -1521,7 +1520,35 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                 getCheckedData() {
                     return privateDefaultProps.checkedData;
                 },
+                setCheckedData(dataArray, conditional) {
+                    privateDefaultProps.checkedData = [];
+                    if (!dataArray || !dataArray[0]) {
+                        return;
+                    }
+                    conditional = conditional || ((checkData, data) => {
+                        return checkData.id === data.id;
+                    });
+                    let list = this.getList() || [];
+                    for (let i = 0; i < list.length; i++) {
+                        dataArray.forEach(checkData => {
+                            if (conditional(checkData, list[i])) {
+                                let dataTr = document.querySelector("#" + _that.el)
+                                    .querySelector('[data-index="' + i + '"]');
+                                let ckboxElem = dataTr.querySelector(".datatable-multiple-checkbox");
+                                ckboxElem.checked = true;
+                                builder.flushCheckedParent(ckboxElem);
 
+                                if (_that.multipleFixed) {
+                                    let datatableFixedBodies = document.querySelector("." + _that.el + "-datatable-body-fixed");
+                                    let shadowDataTr = datatableFixedBodies.querySelector('[data-index="' + i + '"]');
+                                    let shadowCkboxElem = shadowDataTr.querySelector(".datatable-multiple-checkbox");
+                                    shadowCkboxElem.checked = true;
+                                }
+                                layui.form.render()
+                            }
+                        });
+                    }
+                },
                 getList() {
                     return privateDefaultProps.list;
                 },
@@ -1552,9 +1579,9 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         return _defines;
                     })(_that.defines);
                 },
-                setQueryObject(paramObject,value) {
-                    if(value){
-                        privateDefaultProps.queryParam[paramObject] =value;
+                setQueryObject(paramObject, value) {
+                    if (value) {
+                        privateDefaultProps.queryParam[paramObject] = value;
                         return;
                     }
                     if (!paramObject) {

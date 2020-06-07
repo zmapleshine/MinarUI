@@ -1,0 +1,51 @@
+<div class="wmm-modules">
+
+    <div class="wmm-module">
+        <div id="table">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    new WFUI({
+        imports: ["datatable"],
+        init: function () {
+            window.flowTable = new DataTable({
+                el: "table",
+                url: "/demo/table/data.json",
+                multiple: "true",
+                defines: [
+                    {
+                        head: "ID",
+                        prop: "id"
+                    }, {
+                        head: "服务名",
+                        prop: "app"
+                    }, {
+                        head: "资源名称",
+                        prop: "resource"
+                    }, {
+                        head: "限流阈值",
+                        prop: "count"
+                    }, {
+                        head: "集群模式",
+                        prop: "clusterMode"
+                    }, {
+                        head: "集群配置",
+                        prop: "clusterConfig",
+                        type: "dom",
+                        onclick: function (data) {
+                            layer.msg(JSON.stringify(data))
+                        },
+                        replace: function () {
+                            return "<buttion class='layui-btn layui-btn-sm layui-btn-normal'>查看详情</buttion>"
+                        }
+                    }
+                ]
+            });
+        },
+
+
+    });
+</script>

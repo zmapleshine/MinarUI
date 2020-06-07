@@ -67,7 +67,7 @@ var AppConfig = {
     //请求配置
     request: {
         //设置接口请求前缀
-        api: "https://shinez.f.wmeimob.com/admin",
+        api: "http://localhost:6632",
         //全局请求头部
         globalHeaders: {
             // merchantId: function () {

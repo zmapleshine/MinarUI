@@ -137,9 +137,9 @@
             if (imports) {
                 layui.use(imports, function () {
                     if (typeof imports === "string") {
-                        window[imports] = fb[imports];
+                        window[imports] = layui[imports];
                     } else {
-                        imports.forEach(m => window[m] = fb[m]);
+                        imports.forEach(m => window[m] = layui[m]);
                     }
                     _init();
                 });

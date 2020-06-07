@@ -120,7 +120,7 @@ template {
 .wmm-module{
     margin: 10px 10px 0 20px;
     padding: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .23); 
+    box-shadow: 0 0 7px rgba(0, 0, 0, .23);
     flex: 1;
     border-radius: 5px;
 }
@@ -150,8 +150,6 @@ template {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
-    top: 40px;
 }
 
 /**
