@@ -1,6 +1,6 @@
 ## navbar 侧边栏渲染
 
-通常，你无需导入navbar，因为它是Wmm默认初始化的模块。
+通常，你无需导入navbar，因为它是Minar默认初始化的模块。
 
 navbar仅仅只需提供一个render方法：
 

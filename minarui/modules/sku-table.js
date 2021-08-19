@@ -413,7 +413,7 @@
                                         img.style.width = (field.width || 50) + "px";
                                         img.style.maxWidth = (field.width || 50) + "px";
                                         img.style.height = (field.height || 50) + "px";
-                                        img.src = row[name] || "/wfui/imgs/img-up-cover.png";
+                                        img.src = row[name] || "/minarui/imgs/img-up-cover.png";
                                         td.appendChild(img);
                                         if (layui && row[name]) {
                                             layer.photos({

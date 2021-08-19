@@ -142,22 +142,23 @@ class Router {
 
         //如果是非后退的（例如：点击）
         if (!props.isPop) {
-            history.pushState(props.pushState || {}, "", (this.hashMode === false ? props.url : (this.contextPath + "/#" + props.url)) + this.toSearch(props.params));
+            history.pushState(props.pushState || {}, "", (this.hashMode === false ? (this.contextPath + props.url) : (this.contextPath + "/#" + props.url)) + this.toSearch(props.params));
         }
 
         this.refresh();
-        let pageUrl = props.url + "." + this.templateType;
+        let pageURL = props.url + "." + this.templateType;
+        pageURL = props.isPop ? pageURL : (this.contextPath + pageURL);
         if (this.cache) {
             //load page from cache
-            let responseHtml = this.cachePage.get(pageUrl);
+            let responseHtml = this.cachePage.get(pageURL);
             if (!responseHtml) {
-                doAsync(this, pageUrl);
+                doAsync(this, pageURL);
             } else {
                 //render page
-                doRenderPage(this, responseHtml, pageUrl);
+                doRenderPage(this, responseHtml, pageURL);
             }
         } else {
-            doAsync(this, pageUrl);
+            doAsync(this, pageURL);
         }
 
 
@@ -291,7 +292,7 @@ class Router {
         let _this = this;
         let _routeEvent = function () {
             _this.isPop = false;
-            _this.route({url: _this.contextPath + this.getAttribute("route"), params: this.getAttribute("params")});
+            _this.route({url: this.getAttribute("route"), params: this.getAttribute("params")});
         }
         element.removeEventListener("click", _routeEvent);
         element.addEventListener("click", _routeEvent);

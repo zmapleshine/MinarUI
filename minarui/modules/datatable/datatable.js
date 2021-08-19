@@ -8,6 +8,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
             this.formEl = props.formEl || 'search-form';
             //url路径
             this.url = props.url || '/user';
+            this.avgWidth = props.avgWidth
             //api地址
             this.api = props.api || ((typeof AppConfig === "undefined") ? '' : AppConfig.api);
             //自定义数据
@@ -824,7 +825,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                                 layer.closeAll("tips");
                             }
                         }
-                        div.classList.add("wmm-word-break");
+                        div.classList.add("minar-word-break");
                     }
                     div.style.display = "inline-block";
                     let avg = this.getAvgWidth();
@@ -836,7 +837,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                  * @returns {number}
                  */
                 getAvgWidth: function () {
-                    return document.querySelector("#" + _that.el).offsetWidth / (_that.defines.length + (_that.handles.length > 0 ? 1 : 0) + (_that.multiple ? 1 : 0));
+                    return _that.avgWidth || document.querySelector("#" + _that.el).offsetWidth / (_that.defines.length + (_that.handles.length > 0 ? 1 : 0) + (_that.multiple ? 1 : 0));
                 },
                 /**
                  * 类型转换器
@@ -981,7 +982,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         if (_that.defines[index].wordBreak) {
                             let tds = document.querySelectorAll('#' + _that.el + ' td.datatable-' + index + '-cell');
                             tds.forEach(td => {
-                                let div = td.querySelector('.wmm-word-break')
+                                let div = td.querySelector('.minar-word-break')
                                 if (div) {
                                     td.style.width = div.style.width;
                                 }
@@ -1000,7 +1001,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         }
                         //矫正th宽度
                         document.querySelectorAll("#" + _that.el + " th.datatable-" + index + "-cell").forEach(th => {
-                            th.style.minWidth = (elem.clientWidth > (_that.defines[index].width || 0) ? elem.clientWidth : _that.defines[index].width) + scrollWidth + "px";
+                            th.style.minWidth = (elem.clientWidth > (_that.defines[index].width || 0) ? elem.clientWidth : _that.defines[index].width) + scrollWidth-7 + "px";
                         });
                     }
 
@@ -1159,18 +1160,20 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
 
                     let queryString = utils.objectToQueryString(thisQueryData);
                     let requestUrl = _that.url.indexOf("?") === -1 ? (_that.url + "?" + queryString) : (_that.url + "&" + queryString);
-                    layui.req.get(requestUrl, function (res) {
-                        if (res.code && res.code !== 0) {
-                            utils.msg.error(res.description);
-                            return;
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("GET",requestUrl);
+                    xhr.send(null)
+                    xhr.onreadystatechange = function (){
+                        if( xhr.readyState===4 && xhr.status===200){
+                            dbCache = dbCache || {};
+                            dbCache[getQueryCacheKey()] = JSON.stringify(thisQueryData);
+                            setQueryCacheObject(dbCache);
+                            doRender(JSON.parse(xhr.responseText));
                         }
-                        dbCache = dbCache || {};
-                        dbCache[getQueryCacheKey()] = JSON.stringify(thisQueryData);
-                        setQueryCacheObject(dbCache);
-                        doRender(res);
-                    }, function (res) {
-                        console.log(res);
-                    });
+                        if(xhr.readyState===4 && xhr.status!==200){
+                            utils.msg.error(JSON.parse(xhr.responseText));
+                        }
+                    }
                 },
 
                 renderFixed() {
@@ -1267,13 +1270,13 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                                 if (tds[j + 1]) {
                                     td.style.height = tds[j + 1].clientHeight - tdPadding + "px";
                                 }
-                                let wmmBreak = td.querySelector(".layer-tips-active");
-                                if (wmmBreak) {
-                                    wmmBreak.id = "fixed-div" + i + j;
-                                    wmmBreak.onmouseover = function () {
-                                        layer.tips(wmmBreak.innerHTML, "#" + wmmBreak.id);
+                                let minarBreak = td.querySelector(".layer-tips-active");
+                                if (minarBreak) {
+                                    minarBreak.id = "fixed-div" + i + j;
+                                    minarBreak.onmouseover = function () {
+                                        layer.tips(minarBreak.innerHTML, "#" + minarBreak.id);
                                     }
-                                    wmmBreak.onmouseleave = function () {
+                                    minarBreak.onmouseleave = function () {
                                         layer.closeAll("tips");
                                     }
 
@@ -1393,13 +1396,13 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                                 if (tds[j - 1]) {
                                     td.style.height = tds[j - 1].clientHeight - tdPadding + "px";
                                 }
-                                let wmmBreak = td.querySelector(".layer-tips-active");
-                                if (wmmBreak) {
-                                    wmmBreak.id = "fixed-div" + i + j;
-                                    wmmBreak.onmouseover = function () {
-                                        layer.tips(wmmBreak.innerHTML, "#" + wmmBreak.id);
+                                let minarBreak = td.querySelector(".layer-tips-active");
+                                if (minarBreak) {
+                                    minarBreak.id = "fixed-div" + i + j;
+                                    minarBreak.onmouseover = function () {
+                                        layer.tips(minarBreak.innerHTML, "#" + minarBreak.id);
                                     }
-                                    wmmBreak.onmouseleave = function () {
+                                    minarBreak.onmouseleave = function () {
                                         layer.closeAll("tips");
                                     }
 

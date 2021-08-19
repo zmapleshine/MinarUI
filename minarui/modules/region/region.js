@@ -171,7 +171,7 @@
                 alert("请升级至最新版本的浏览器");
             }
             if (ajax != null) {
-                ajax.open("GET", (contextPath || "") + "/wfui/modules/region/region.json", true);
+                ajax.open("GET", (contextPath || "") + "/minarui/modules/region/region.json", true);
                 ajax.send(null);
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState === 4 && ajax.status === 200) {
@@ -182,7 +182,7 @@
             }
         }
         return {
-            plugin_version: "wmm1.0",
+            plugin_version: "minar1.0",
             date_version: "20171030",
             provide_by: "https://lbs.qq.com/webservice_v1/guide-region.html"
         }
