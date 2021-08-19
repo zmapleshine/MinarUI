@@ -5,15 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>测试</title>
-    <link rel="stylesheet" href="/wfui/css/wfui.css">
+    <title>MinarUI</title>
+    <link rel="stylesheet" href="/minarui/css/minarui.css">
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/layui/layui.js"></script>
     <script src="/app.config.js"></script>
-    <script src="/wfui/modules/modules/modules.js"></script>
+    <script src="/minarui/modules/modules/modules.js"></script>
 </head>
 
-<body class="wmm-body">
+<template id="tmp-toplink-children">
+    <dl class="layui-nav-child">
+        {{child}}
+    </dl>
+</template>
+
+<template id="tmp-toplink-child">
+    <dd>
+        <a href="{{href}}" {{iframe}} {{target}} params="{{params}}" route="{{route}}" {{event}}>{{name}}</a>
+    </dd>
+</template>
+
+<template id="tmp-toplink">
+    <li class="layui-nav-item">
+        <a href="{{href}}" {{iframe}} {{target}} params="{{params}}" route="{{route}}" {{event}}>
+            <i class="layui-icon {{icon}}"></i>
+            <span>{{name}}</span>
+        </a>
+        {{children}}
+    </li>
+</template>
+
+
+<body class="minar-body">
+<ul class="layui-nav layui-bg-blue" lay-bar="disabled" id="minar-nav">
+</ul>
 <div class="page-container"></div>
 </body>
 <script>
@@ -24,33 +49,74 @@
 
             if (AppConfig.page.index && AppConfig.page.index.route && layui.router.path.length === 0) {
                 layui.router.route({
-                    url: AppConfig.route.contextPath + (typeof AppConfig.page.index.route === "function" ? AppConfig.page.index.route() : AppConfig.page.index.route),
+                    url: typeof AppConfig.page.index.route === "function" ? AppConfig.page.index.route() : AppConfig.page.index.route,
                     params: AppConfig.page.index.params
                 });
             }
         },
-    };
-    var preInitModulesList = ["fastbootExpands", 'router', 'WFUI', 'element', 'jquery', 'req', 'spop'];
+        initTopLinks: function () {
+            let topLinks = AppConfig.page.topLinks;
+            let content = "";
+            let convertRule = {
+                children: (v) => {
+                    let childrenStr = "";
+                    if (v === undefined || v.length === 0) {
+                        return childrenStr;
+                    }
+                    childrenStr += document.querySelector("#tmp-toplink-children").innerHTML.render(v, convertRule);
+                    return childrenStr;
+                },
+                child: (v, o) => {
+                    let childStr = "";
+                    for (let idx = 0; idx < o.length; ++idx) {
+                        childStr += document.querySelector("#tmp-toplink-child").innerHTML.render(o[idx], convertRule);
+                    }
+                    return childStr;
+                },
+                href: (v, o) => {
+                    if (v === undefined || v === "") {
+                        return "javascript:";
+                    }
+                    return v;
+                },
+                target: (v, o) => {
+                    if (o.href === undefined || o.href === "") {
+                        return "";
+                    }
+                    return "target='_blank'";
+                },
+                event: (v, o) => {
+                    return o.tip ? ('onclick="fb.layer.msg(\'' + o.tip + '\')"') : (o.onclick ? ('onclick="' + o.onclick + '"') : '');
+                },
+                iframe: (v, o) => {
+                    if (v) {
+                        return "onclick=openIframe('" + o.menuName + "','" + v + "')"
+                    }
+                    return "";
+                },
 
-    WFUIModulesDefinition(function () {
+            };
+            for (let index = 0; index < topLinks.length; index++) {
+                const element = topLinks[index];
+                content += document.querySelector("#tmp-toplink").innerHTML.render(element, convertRule);
+            }
+            document.querySelector("#minar-nav").innerHTML = content;
+        },
+    };
+    var preInitModulesList = ["fastbootExpands", 'router', 'MinarUI', 'element', 'jquery', 'req', 'spop'];
+
+    MinarUIModulesDefinition(function () {
         layui.use(preInitModulesList, function () {
             window.$ = window.jquery;
             preInitModulesList.forEach(function (m) {
                 window[m] = layui[m]
             });
-            var reqInitParam = {
-                api: AppConfig.request.api,
-                headers: AppConfig.request.globalHeaders,
-                autoCustomErrTip: AppConfig.request.autoCustomErrTip
-            };
-            if (AppConfig.authentication.enabled) {
-                reqInitParam.tokenAlias = AppConfig.authentication.tokenAlias;
-                reqInitParam.authHandler = AppConfig.authentication.handler;
-            }
-            req.init(reqInitParam);
             _idxPage.initRoute();
+            _idxPage.initTopLinks()
         });
     });
+
+
 </script>
 
 </html>

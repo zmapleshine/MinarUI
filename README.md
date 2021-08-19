@@ -1,12 +1,12 @@
-# WFUI 
+# MinarUI 
 
-[![Build Status](https://travis-ci.org/fbackend/WFUI.svg?branch=master)](https://travis-ci.org/fbackend/WFUI)
+[![Build Status](https://travis-ci.com/zmapleshine/MinarUI.svg?branch=master)](https://travis-ci.com/zmapleshine/MinarUI)
 ![Language](https://img.shields.io/badge/language-JavaScript-orange.svg)
 ![Language](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## 介绍
 
-WFUI 是基于 Layui 二次封装的面向后端人员的前端构建框架，基本采用纯 js开发构建。
+MinarUI 是基于 Layui 二次封装的面向后端人员的前端构建框架，基本采用纯 js开发构建。
 构建后的框架无需涉足前端构建相关的领域，开箱即用。
 
 ## 开发指南

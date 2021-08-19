@@ -6,7 +6,7 @@
         "datatable": "datatable/datatable",
         "richText": "rich-text",
         "SkuTable": "sku-table",
-        "WFUI": "WFUI",
+        "MinarUI": "MinarUI",
         "sysTools": "sys-tools",
         "uploadTools": "upload-tools",
         "excelTools": "excel-tools",

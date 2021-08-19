@@ -11,29 +11,29 @@ gulp.task('clean', () => {
 })
 
 gulp.task('copy', () => {
-    return gulp.src(["layui*/**", "wfui*/**/*.*", "app.config.js", "favicon.ico", "*.html", "*.jpg"])
+    return gulp.src(["layui*/**", "minarui*/**/*.*", "app.config.js", "favicon.ico", "*.html", "*.jpg"])
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task("toes5", function () {
-    return gulp.src(["dist/wfui/**/*.js", "!dist/wfui/plugins/**/*.js"])
+    return gulp.src(["dist/minarui/**/*.js", "!dist/minarui/plugins/**/*.js"])
         .pipe(babel())
-        .pipe(gulp.dest("dist/wfui/"))
+        .pipe(gulp.dest("dist/minarui/"))
 });
 gulp.task('compressJS', function () {
 
-    return gulp.src(['dist/*.js', 'dist/wfui/**/*.js', "!dist/wfui/plugins/**/*.js"])
+    return gulp.src(['dist/minarui/**/*.js', "!dist/minarui/plugins/**/*.js"])
         .pipe(uglify({
             mangle: true
         }))
 
-        .pipe(gulp.dest('dist/wfui/'));
+        .pipe(gulp.dest('dist/minarui/'));
 });
 
 gulp.task('compressCSS', function () {
-    return gulp.src('dist/wfui/**/*.css')
+    return gulp.src('dist/minarui/**/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest('dist/wfui/'))
+        .pipe(gulp.dest('dist/minarui/'))
 })
 
 

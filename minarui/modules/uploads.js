@@ -19,7 +19,7 @@
             this.container = options.container;
             this.height = options.height || 150;
             this.width = options.width || 150;
-            this.upBG = options.upBG || "/wfui/imgs/img-up-cover.png";
+            this.upBG = options.upBG || "/minarui/imgs/img-up-cover.png";
             this.debug = options.debug === true;
             this.input = options.input || {name: "", value: ""};
             this.maxCount = options.maxCount || 1;

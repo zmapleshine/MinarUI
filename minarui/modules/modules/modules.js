@@ -14,19 +14,19 @@
             }
         }
 
-        xhr.open('GET', contextPath + '/wfui/modules/modules/modules.json', true);
+        xhr.open('GET', contextPath + '/minarui/modules/modules/modules.json', true);
         xhr.send(null);
         xhr.onload = function (e) {
             if (this.status === 200 || this.status === 304) {
                 let definedModules = JSON.parse(this.responseText);
-                let baseModulePath = "/wfui/modules/";
+                let baseModulePath = "/minarui/modules/";
                 configureModules(definedModules.modules, path => path.indexOf("/") !== -1 ? "{/}" + contextPath + baseModulePath : "");
-                configureModules(definedModules.plugin, "{/}" + contextPath + "/wfui/plugins/");
+                configureModules(definedModules.plugin, "{/}" + contextPath + "/minarui/plugins/");
                 configureModules(AppConfig.modules, "{/}" + contextPath);
                 layui.config({base: contextPath + baseModulePath}).extend(appModules);
                 callback && callback();
             }
         };
     }
-    window.WFUIModulesDefinition = definition;
+    window.MinarUIModulesDefinition = definition;
 }()

@@ -1,7 +1,7 @@
 utils
 ---
 
-utils是wmm通用工具库。
+utils是minar通用工具库。
 
 ### 使用方法
 ---

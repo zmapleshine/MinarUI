@@ -12,9 +12,9 @@
     }
 }(typeof window !== 'undefined' ? window : this, function () {
 
-    class WFUI {
+    class minarui {
         constructor(props) {
-            //wmm初始化函数
+            //minar初始化函数
             this.init = props.init;
             //监听
             this.listener = props.listener;
@@ -35,8 +35,8 @@
 
 
             !function () {
-                //隐藏wmm-module
-                document.querySelectorAll(".wmm-module").forEach(e => e.style.display = "none")
+                //隐藏minar-module
+                document.querySelectorAll(".minar-module").forEach(e => e.style.display = "none")
                 window.onresize = function () {
                 };
                 if (window.fb) {
@@ -128,7 +128,7 @@
 
             //一次性渲染字符串模板
             let renderTemplate = function () {
-                document.querySelectorAll(".wmm-module").forEach((e, idx) => {
+                document.querySelectorAll(".minar-module").forEach((e, idx) => {
                     e.innerHTML = e.innerHTML.render(_this.data || {}, _this._data || {});
                     e.style.display = "";
                 });
@@ -150,9 +150,9 @@
         }
     }
 
-    return WFUI;
+    return minarui;
 
 }, {
-    name: "WFUI",
+    name: "MinarUI",
     dependencies: []
 });

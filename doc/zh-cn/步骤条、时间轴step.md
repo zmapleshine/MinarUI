@@ -6,7 +6,7 @@ step是一个步骤条或者称之为时间轴
 <div id="step" style="text-align:center">< /div>
 ```
 ```javascript
-需要在Wmm中导入step模块
+需要在minar中导入step模块
 
 data0 = {
 	steps: [{ "title": "基础信息", "time": "2018-10-09 17:59" },

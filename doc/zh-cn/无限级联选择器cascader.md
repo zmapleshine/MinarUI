@@ -11,7 +11,7 @@ cascader是一个无限级联选择器
 </div>
 ```
 ```javascript
-需要在Wmm中导入cascader模块
+需要在MinarUI中导入cascader模块
 数据格式：
 var data = [{
         label: "生鲜",//下拉框显示名称
