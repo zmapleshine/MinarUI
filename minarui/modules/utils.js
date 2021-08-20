@@ -15,7 +15,7 @@
         return {
             open:
                 function (content, title, x, y, func) {
-                    layer.open({
+                    return layer.open({
                         type: 1,
                         title: title,
                         area: [x, y],

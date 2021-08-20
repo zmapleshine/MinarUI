@@ -1013,7 +1013,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         if (operation) {
                             let operationChild = document.querySelector("#" + _that.el + " .operation-child");
                             if (operationChild) {
-                                operation.forEach(op => op.style.minWidth = operationChild.clientWidth + (!hasAddedScroll ? (body.offsetWidth - body.clientWidth) : 0) + "px")
+                                operation.forEach(op => op.style.minWidth = operationChild.clientWidth + (!hasAddedScroll ? (body.offsetWidth - body.clientWidth) : 0) -7 + "px")
                             }
                         }
                     }
