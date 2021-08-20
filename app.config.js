@@ -45,6 +45,7 @@ var AppConfig = {
 
     //配置自定义模块
     modules: {
-
+        define:{},
+        path:""
     },
 }

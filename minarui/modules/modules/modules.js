@@ -22,7 +22,7 @@
                 let baseModulePath = "/minarui/modules/";
                 configureModules(definedModules.modules, path => path.indexOf("/") !== -1 ? "{/}" + contextPath + baseModulePath : "");
                 configureModules(definedModules.plugin, "{/}" + contextPath + "/minarui/plugins/");
-                configureModules(AppConfig.modules, "{/}" + contextPath);
+                configureModules(AppConfig.modules, "{/}" + contextPath + AppConfig.modules.path);
                 layui.config({base: contextPath + baseModulePath}).extend(appModules);
                 callback && callback();
             }
