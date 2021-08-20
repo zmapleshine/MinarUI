@@ -1,6 +1,3 @@
-/**
- * wmeimob fastboot utils
- */
 (function (factory) {
     let utils = factory();
     if (window.fb || window.layui) {

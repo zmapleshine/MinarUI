@@ -24,7 +24,7 @@ var AppConfig = {
             }, {
                 name: "文档管理",
                 icon: "layui-icon-login-wechat",
-                href: "https://doc.f.wmeimob.com"
+                href: "/docs"
             }, {
                 name: "SQL监控",
                 icon: "layui-icon-404",
