@@ -124,7 +124,7 @@ layui.define(function (exports) {
                             const globalHandler = getHandlerFromConfig(globalConfig, status);
 
                             const resp = getResponse(xhr);
-                            handler && handler(resp) || (globalHandler && globalHandler(resp))
+                            handler && handler(resp,status) || (globalHandler && globalHandler(resp, status))
 
                             _config.handler.onComplete && _config.handler.onComplete(resp, status)
                             || (globalConfig.handler.onComplete && globalConfig.handler.onComplete(resp, status));
