@@ -124,10 +124,18 @@ layui.define(function (exports) {
                             const globalHandler = getHandlerFromConfig(globalConfig, status);
 
                             const resp = getResponse(xhr);
-                            handler && handler(resp,status) || (globalHandler && globalHandler(resp, status))
 
-                            _config.handler.onComplete && _config.handler.onComplete(resp, status)
-                            || (globalConfig.handler.onComplete && globalConfig.handler.onComplete(resp, status));
+                            if (handler) {
+                                handler(resp, status);
+                            } else {
+                                globalHandler && globalHandler(resp, status);
+                            }
+
+                            if (_config.handler.onComplete) {
+                                _config.handler.onComplete(resp, status);
+                            } else {
+                                globalConfig.handler.onComplete && globalConfig.handler.onComplete(resp, status);
+                            }
                         }
                     }
 
@@ -140,12 +148,18 @@ layui.define(function (exports) {
 
                     xhr.timeout = globalConfig.timeout;
                     xhr.ontimeout = function (ev) {
-                        _config.handler.onTimeout && _config.handler.onTimeout(ev)
-                        || (globalConfig.handler.onTimeout && globalConfig.handler.onTimeout(ev));
+                        if (_config.handler.onTimeout) {
+                            _config.handler.onTimeout(ev);
+                        } else {
+                            globalConfig.handler.onTimeout && globalConfig.handler.onTimeout(ev);
+                        }
                     }
                     xhr.upload.onprogress = function (ev) {
-                        _config.handler.onUploadProgress && _config.handler.onUploadProgress(ev)
-                        || (globalConfig.handler.onUploadProgress && globalConfig.handler.onUploadProgress(ev));
+                        if (_config.handler.onUploadProgress) {
+                            _config.handler.onUploadProgress(ev);
+                        } else {
+                            globalConfig.handler.onUploadProgress && globalConfig.handler.onUploadProgress(ev);
+                        }
                     }
 
                     if (body === undefined) {
