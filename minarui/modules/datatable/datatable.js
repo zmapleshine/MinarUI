@@ -1001,7 +1001,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         }
                         //矫正th宽度
                         document.querySelectorAll("#" + _that.el + " th.datatable-" + index + "-cell").forEach(th => {
-                            th.style.minWidth = (elem.clientWidth > (_that.defines[index].width || 0) ? elem.clientWidth : _that.defines[index].width) + scrollWidth-7 + "px";
+                            th.style.minWidth = (elem.clientWidth > (_that.defines[index].width || 0) ? elem.clientWidth : _that.defines[index].width) + scrollWidth - 7 + "px";
                         });
                     }
 
@@ -1013,7 +1013,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         if (operation) {
                             let operationChild = document.querySelector("#" + _that.el + " .operation-child");
                             if (operationChild) {
-                                operation.forEach(op => op.style.minWidth = operationChild.clientWidth + (!hasAddedScroll ? (body.offsetWidth - body.clientWidth) : 0) -7 + "px")
+                                operation.forEach(op => op.style.minWidth = operationChild.clientWidth + (!hasAddedScroll ? (body.offsetWidth - body.clientWidth) : 0) - 7 + "px")
                             }
                         }
                     }
@@ -1023,7 +1023,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         let checkeParent = document.querySelectorAll("." + _that.el + "-checkall");
                         let checkboxChild = document.querySelector("." + _that.el + "-checkchild");
                         if (checkboxChild) {
-                            checkeParent.forEach(cp => cp.style.minWidth = checkboxChild.clientWidth + "px");
+                            checkeParent.forEach(cp => cp.style.minWidth = checkboxChild.clientWidth - 7 + "px");
                         }
                     }
                 },
@@ -1161,16 +1161,16 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                     let queryString = utils.objectToQueryString(thisQueryData);
                     let requestUrl = _that.url.indexOf("?") === -1 ? (_that.url + "?" + queryString) : (_that.url + "&" + queryString);
                     let xhr = new XMLHttpRequest();
-                    xhr.open("GET",requestUrl);
+                    xhr.open("GET", requestUrl);
                     xhr.send(null)
-                    xhr.onreadystatechange = function (){
-                        if( xhr.readyState===4 && xhr.status===200){
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
                             dbCache = dbCache || {};
                             dbCache[getQueryCacheKey()] = JSON.stringify(thisQueryData);
                             setQueryCacheObject(dbCache);
                             doRender(JSON.parse(xhr.responseText));
                         }
-                        if(xhr.readyState===4 && xhr.status!==200){
+                        if (xhr.readyState === 4 && xhr.status !== 200) {
                             utils.msg.error(JSON.parse(xhr.responseText));
                         }
                     }
@@ -1268,7 +1268,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                                 const td = tds[j].cloneNode(true);
                                 td.removeAttribute("id");
                                 if (tds[j + 1]) {
-                                    td.style.height = tds[j + 1].clientHeight - tdPadding + "px";
+                                    td.style.height = tds[j + 1].clientHeight - tdPadding + 0.336 + "px";
                                 }
                                 let minarBreak = td.querySelector(".layer-tips-active");
                                 if (minarBreak) {
@@ -1540,7 +1540,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         let ckboxElem = dataTr.querySelector(".datatable-multiple-checkbox");
                         ckboxElem.checked = false;
 
-                        let datatableFixedBodies,shadowDataTr,shadowCkboxElem;
+                        let datatableFixedBodies, shadowDataTr, shadowCkboxElem;
                         if (_that.multipleFixed) {
                             datatableFixedBodies = document.querySelector("." + _that.el + "-datatable-body-fixed");
                             shadowDataTr = datatableFixedBodies.querySelector('[data-index="' + i + '"]');

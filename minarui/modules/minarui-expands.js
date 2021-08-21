@@ -1,7 +1,7 @@
 !function () {
 
     layui.define(function (exports) {
-        exports('fastbootExpands', {})
+        exports('minaruiExpands', {})
     });
 
     //字符串模板函数

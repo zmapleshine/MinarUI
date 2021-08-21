@@ -39,7 +39,7 @@
                 document.querySelectorAll(".minar-module").forEach(e => e.style.display = "none")
                 window.onresize = function () {
                 };
-                if (window.fb) {
+                if (window.layui) {
                     layui.cache.event = {};
                 }
             }();

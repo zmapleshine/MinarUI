@@ -1,25 +1,243 @@
-<div class="minar-module">
-    <div id="table">
+<div class="minar-modules-line">
+    <div class="minar-module">
+
+        <form action="javascript" class="layui-form">
+            <div class="layui-form-item">
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-normal"
+                        onclick="router.route({url:location.pathname})">路由刷新
+                </button>
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="location.href='/'">页面刷新
+                </button>
+            </div>
+        </form>
+
+
+        <div id="table">
+
+        </div>
+
 
     </div>
-    <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="router.route({url:location.pathname})">刷新</button>
 </div>
 
+
 <script>
-    var dataStr=[{"id":2,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/valid","grade":1,"count":20.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":2,"thresholdType":1,"fallbackToLocalWhenFail":false,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":3,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/buyer/view","grade":1,"count":50.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":3,"thresholdType":1,"fallbackToLocalWhenFail":false,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":89,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/submit","grade":1,"count":30.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":90,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/confirm","grade":1,"count":20.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":91,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/merchant/batchAdd","grade":1,"count":10.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":92,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/merchant/add","grade":1,"count":10.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":93,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/merchant/update","grade":1,"count":15.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null},{"id":63,"app":"test-interfaces","ip":null,"port":null,"limitApp":"default","resource":"/seller/query/isSeller","grade":1,"count":150.0,"strategy":0,"refResource":null,"controlBehavior":0,"warmUpPeriodSec":null,"maxQueueingTimeMs":null,"clusterMode":false,"clusterConfig":{"flowId":null,"thresholdType":0,"fallbackToLocalWhenFail":true,"strategy":0,"sampleCount":10,"windowIntervalMs":1000},"gmtCreate":null,"gmtModified":null}]
+
+    var dataStr = [{
+        "id": 2,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/valid",
+        "grade": 1,
+        "count": 20.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": 2,
+            "thresholdType": 1,
+            "fallbackToLocalWhenFail": false,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 3,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/buyer/view",
+        "grade": 1,
+        "count": 50.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": 3,
+            "thresholdType": 1,
+            "fallbackToLocalWhenFail": false,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 89,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/submit",
+        "grade": 1,
+        "count": 30.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 90,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/confirm",
+        "grade": 1,
+        "count": 20.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 91,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/merchant/batchAdd",
+        "grade": 1,
+        "count": 10.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 92,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/merchant/add",
+        "grade": 1,
+        "count": 10.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 93,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/merchant/update",
+        "grade": 1,
+        "count": 15.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }, {
+        "id": 63,
+        "app": "test-interfaces",
+        "ip": null,
+        "port": null,
+        "limitApp": "default",
+        "resource": "/seller/query/isSeller",
+        "grade": 1,
+        "count": 150.0,
+        "strategy": 0,
+        "refResource": null,
+        "controlBehavior": 0,
+        "warmUpPeriodSec": null,
+        "maxQueueingTimeMs": null,
+        "clusterMode": false,
+        "clusterConfig": {
+            "flowId": null,
+            "thresholdType": 0,
+            "fallbackToLocalWhenFail": true,
+            "strategy": 0,
+            "sampleCount": 10,
+            "windowIntervalMs": 1000
+        },
+        "gmtCreate": null,
+        "gmtModified": null
+    }]
     for (var i = 0; i < 5; i++) {
         dataStr = dataStr.concat(dataStr)
     }
     new MinarUI({
         imports: ["datatable"],
         init: function () {
+
             window.flowTable = new DataTable({
                 el: "table",
-                data:dataStr,
+                data: dataStr,
                 // url: "/demo/table/data.json",
                 multiple: "true",
-                avgWidth:100,
-                multipleFixed:false,
+                avgWidth: 100,
+                multipleFixed: true,
                 defines: [
                     {
                         head: "ID",
@@ -46,6 +264,14 @@
                         },
                         replace: function () {
                             return "<buttion class='layui-btn layui-btn-sm layui-btn-normal'>查看详情</buttion>"
+                        }
+                    }
+                ],
+                handles: [
+                    {
+                        name: "操作1",
+                        func: function (data) {
+                            layer.msg(JSON.stringify(data))
                         }
                     }
                 ]

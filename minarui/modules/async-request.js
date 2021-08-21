@@ -1,7 +1,7 @@
 const SUCCESS = 0;
 const FAIL = -1;
 (function (factory) {
-    if (window.fb || window.layui) {
+    if (window.layui) {
         layui.define(['jquery', 'layer', 'utils'], function (exports) {
             exports('req', factory());
         });

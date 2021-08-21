@@ -192,7 +192,7 @@
 		return new SmallPop(template, style);
 	};
 
-	if (window.fb || window.layui) {
+	if (window.layui) {
 		layui.define(function (exports) {
 			layui.link(layui.cache.modules.spop.replace(".js",".min.css"))
 			exports("spop",spop);

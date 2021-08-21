@@ -335,7 +335,7 @@ class Router {
 }
 
 
-if (window.fb || window.layui) {
+if (window.layui) {
     layui.define(function (exports) {
         exports('router', new Router())
     });

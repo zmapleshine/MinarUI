@@ -1,5 +1,5 @@
 !function () {
-    if (window.fb || window.layui) {
+    if (window.layui) {
         layui.define(["wangEditor", "uploadTools", "utils"], function (define) {
             window.wangEditor = layui.wangEditor;
             window.uploadTools = layui.uploadTools;
@@ -144,7 +144,7 @@
             editor.customConfig.pasteTextHandle = function (content) {
                 let contentDiv = document.createElement("div");
                 contentDiv.innerHTML = content;
-                contentDiv.id = "fb-rich-text-" + _this.el.substring(1);
+                contentDiv.id = "minar-rich-text-" + _this.el.substring(1);
                 let imgDoms = contentDiv.querySelectorAll("img");
 
                 let configure = uploadTools.configure(_this.tokenInfo, {});

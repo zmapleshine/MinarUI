@@ -118,7 +118,7 @@ excel.importExcel(files,//上传文件
   range: 1,
 }, function (data) {
   //导入数据提交后台
-  fb.req.post("/test/excel", data,
+  req.post("/test/excel", data,
 	function (ret) {
 	 layer.alert('success');
    }, function (ret) {

@@ -1,6 +1,6 @@
 {
     "modules": {
-        "fastbootExpands": "fastboot-expands",
+        "minaruiExpands": "minarui-expands",
         "formSelects": "formSelects-v4",
         "req": "async-request",
         "datatable": "datatable/datatable",

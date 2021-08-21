@@ -134,7 +134,7 @@
         }
     }
 
-    if (window.fb || window.layui) {
+    if (window.layui) {
         layui.define("api", function (exports) {
             exports("uploadTools", uploadTools);
         });

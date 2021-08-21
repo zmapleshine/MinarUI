@@ -86,7 +86,7 @@
                     return "target='_blank'";
                 },
                 event: (v, o) => {
-                    return o.tip ? ('onclick="fb.layer.msg(\'' + o.tip + '\')"') : (o.onclick ? ('onclick="' + o.onclick + '"') : '');
+                    return o.tip ? ('onclick="layer.msg(\'' + o.tip + '\')"') : (o.onclick ? ('onclick="' + o.onclick + '"') : '');
                 },
                 iframe: (v, o) => {
                     if (v) {
@@ -103,7 +103,7 @@
             document.querySelector("#minar-nav").innerHTML = content;
         },
     };
-    var preInitModulesList = ["fastbootExpands", 'router', 'MinarUI', 'element', 'jquery', 'req', 'spop'];
+    var preInitModulesList = ["minaruiExpands", 'router', 'MinarUI', 'element', 'jquery', 'req', 'spop', 'minare'];
 
     MinarUIModulesDefinition(function () {
         layui.use(preInitModulesList, function () {
@@ -113,6 +113,7 @@
             });
             _idxPage.initRoute();
             _idxPage.initTopLinks()
+            layui.element.render()
         });
     });
 

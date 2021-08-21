@@ -81,7 +81,7 @@
                         outerDom.style.overflow = "auto";
                         outerDom.style.textAlign = "center";
                         outerDom.classList.add("sku-table-frame");
-                        if (window.fb || window.layui) outerDom.classList.add("layui-form");
+                        if (window.layui) outerDom.classList.add("layui-form");
                     }
                     outerDom.innerHTML = "";
                     //create table

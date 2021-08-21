@@ -250,8 +250,8 @@
 }
 
 .layui-form-checked[lay-skin=primary] i{
-    border-color: var(--active-color);
-    background-color: var(--active-color);
+    border-color: var(--active-color) !important;
+    background-color: var(--active-color) !important;
 }
 .layui-form-radio>i:hover, .layui-form-radioed>i {
     color:var(--active-color);

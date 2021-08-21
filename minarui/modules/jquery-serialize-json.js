@@ -31,7 +31,7 @@
         return o;
     };
 
-    if (window.fb || window.layui) {
+    if (window.layui) {
         layui.define('jquery', function (exports) {
             exports('jquery-serialize-json', {});
         });

@@ -1,6 +1,6 @@
 (function (factory) {
     let utils = factory();
-    if (window.fb || window.layui) {
+    if (window.layui) {
         layui.define("spop", function (exports) {
             exports('utils', utils);
         });
@@ -380,7 +380,7 @@
                     }
 
                     let dom = document.querySelector(el);
-                    let opClassName = "fb-render-select-op" + (valueProp || "id") + (displayProp || "name");
+                    let opClassName = "minar-render-select-op" + (valueProp || "id") + (displayProp || "name");
                     for (let index = 0; index < dom.childNodes.length; index++) {
                         const element = dom.childNodes[index];
                         if (element.tagName !== "OPTION") {
@@ -396,7 +396,7 @@
                         let option = document.createElement("option");
                         option.value = element[valueProp || "id"];
                         option.innerText = element[displayProp || "name"];
-                        option.classList.add("fb-render-select-op" + (valueProp || "id") + (displayProp || "name"))
+                        option.classList.add("minar-render-select-op" + (valueProp || "id") + (displayProp || "name"))
                         dom.appendChild(option);
                     }
                     layui.form.render("select");

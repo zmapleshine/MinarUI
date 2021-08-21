@@ -18,7 +18,7 @@ navbar.render({
 		//设置菜单的选中效果
 		index.setItemSelect();
 		//重新渲染模块
-		fb.element.render();
+		element.render();
 	}
 });
 ```

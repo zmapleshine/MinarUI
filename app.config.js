@@ -33,6 +33,18 @@ var AppConfig = {
                 name:"主菜单",
                 icon:"layui-icon-wechat",
                 onclick:"index.initMenu(true)"
+            },{
+                name:"多级菜单",
+                icon:"layui-icon-wechat",
+                children:[
+                    {
+                        name:"子菜单1",
+                        icon:"layui-icon-wechat",
+                    },  {
+                        name:"子菜单2",
+                        icon:"layui-icon-wechat",
+                    }
+                ]
             }
         ],
         //设置默认首页

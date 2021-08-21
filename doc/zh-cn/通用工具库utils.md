@@ -23,7 +23,7 @@ utils.open(content, title, x, y, func);
 //y:高度 为String 需要写px或者%
 //func:层弹出后的成功回调方法
 例子：
- fb.utils.open($("#addGoods").html(), "添加商品", "700px", "600px", function () {
+ minarui.utils.open($("#addGoods").html(), "添加商品", "700px", "600px", function () {
 	 console.log("111")
  });
 ```
