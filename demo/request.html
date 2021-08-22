@@ -1,0 +1,48 @@
+<div class="minar-modules-line">
+
+    <div class="minar-module">
+        <form action="javascript:" class="layui-form" name="demo-form">
+            <input class=" layui-input-inline" name="jarFile" type="file">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="upload">上传</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    new MinarUI({
+        imports: ["minare", "form"],
+        init: function () {
+            minare.config(function (confugure) {
+                confugure.whenUploadProgress(function (e) {
+                    console.log(e.loaded / e.total * 100 + "%")
+                }).whenComplete(function (resp, status) {
+                    layer.msg(JSON.stringify(resp))
+                }).when(405, function (response) {
+                    alert(405)
+                }).when(500, function (response) {
+                    layer.msg(JSON.stringify(response))
+                }).whenTimeout(function (re) {
+                    layer.msg("超时")
+                })
+                    .timeout(1000)
+            })
+        },
+        listener: function () {
+            form.on("submit(upload)", function (data) {
+                var inputFile = document.querySelector("[name=demo-form]").jarFile;
+                var formData = new FormData();
+                formData.append("file", inputFile.files[0]);
+                minare
+                    .newPost("http://localhost:8081/1.0/upload", formData)
+                    .onComplete(function (response) {
+                        alert("好了！")
+                    }).onError(function () {
+                    alert("出错了")
+                })
+                    .execute()
+            })
+        },
+
+        methods: {}
+    });
+</script>

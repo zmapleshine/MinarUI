@@ -4,10 +4,7 @@ layui.define(function (exports) {
         let config = function () {
             return {
                 handler: {
-                    onComplete: function () {
-                    }, onTimeout: function () {
-                    }, onUploadProgress: function () {
-                    }, statusHandlerMapping: {}
+                    onComplete: null, onTimeout: null, onUploadProgress: null, statusHandlerMapping: {}
                 },
                 header: {},
                 timeout: 0
@@ -98,6 +95,7 @@ layui.define(function (exports) {
                 },
                 onTimeout: function (f) {
                     _config.handler.onTimeout = getFunction(f, true);
+                    return this;
                 },
                 onUploadProgress: function (f) {
                     _config.handler.onUploadProgress = getFunction(f, true);

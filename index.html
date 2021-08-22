@@ -45,14 +45,17 @@
     var _idxPage = {
         initRoute: function () {
             //init router
-            layui.router.init(AppConfig.route);
+            router.init(AppConfig.route);
 
-            if (AppConfig.page.index && AppConfig.page.index.route && layui.router.path.length === 0) {
-                layui.router.route({
+            if (AppConfig.page.index && AppConfig.page.index.route && router.path.length === 0) {
+                router.route({
                     url: typeof AppConfig.page.index.route === "function" ? AppConfig.page.index.route() : AppConfig.page.index.route,
                     params: AppConfig.page.index.params
                 });
             }
+            document.querySelectorAll("[route]").forEach(e => {
+                router.registRouteEvent(e);
+            });
         },
         initTopLinks: function () {
             let topLinks = AppConfig.page.topLinks;
@@ -111,8 +114,8 @@
             preInitModulesList.forEach(function (m) {
                 window[m] = layui[m]
             });
-            _idxPage.initRoute();
             _idxPage.initTopLinks()
+            _idxPage.initRoute();
             layui.element.render()
         });
     });
