@@ -15,6 +15,7 @@ var AppConfig = {
 
     //页面相关配置
     page: {
+        title:":: Enjoy your MinarUI ::",
         //顶部菜单配置
         topLinks: [
             {

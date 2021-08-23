@@ -12,7 +12,7 @@
     }
 }(typeof window !== 'undefined' ? window : this, function () {
 
-    class minarui {
+    class MinarUi {
         constructor(props) {
             //minar初始化函数
             this.init = props.init;
@@ -150,7 +150,7 @@
         }
     }
 
-    return minarui;
+    return MinarUi;
 
 }, {
     name: "MinarUI",
