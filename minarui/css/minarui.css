@@ -44,9 +44,6 @@
     background-color:var(--background-color) !important;
 }
 
-.layui-logo{
-    color:white;
-}
 .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover {
     background-color: var(--active-color);
     color: #fff;
@@ -96,6 +93,60 @@
     top: 60px;
     background-color: #eee;
 }
+
+
+.minar-module-top {
+    margin: 16px 10px;
+}
+.minar-split-title {
+    background-color: #1E9FFF;
+    width: 5px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+.minar-top-title-main{
+    font-size: 20px
+}
+.minar-top-title-sub {
+    margin: 0 0 0 10px;
+    color: #666666
+}
+
+.minar-flex-9-1 {
+    display: flex;
+}
+
+.minar-flex-9-1 > div:first-child{
+    flex: 9;
+}
+
+.minar-flex-9-1 > div:last-child{
+    flex: 1;
+    text-align: right;
+}
+
+
+.minar-module-main {
+    padding: 0 10px;
+}
+
+
+.minar-code-editor {
+    display: block;
+    border: 10px solid #F8F8F8;
+    border-top-width: 0;
+    padding: 10px;
+    line-height: 20px;
+    overflow: auto;
+    background-color: #3F3F3F;
+    color: #eee;
+    font-size: 12px;
+    font-family: Courier New;
+}
+
 
 /**
 布局定义结束
