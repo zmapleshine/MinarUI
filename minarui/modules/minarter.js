@@ -1,9 +1,9 @@
 /**
- * shinez-router
- * @author Shinez.
- * @create 2018-07-03 17:47:44
+ * Minarter
+ * @author zmapleshine.
+ * @create 2021-8-27 00:28:03
  */
-class Router {
+class Minarter {
 
     constructor() {
         this.path = [];
@@ -83,7 +83,7 @@ class Router {
 
 
     /**
-     * refresh router properties from current location
+     * refresh minarter properties from current location
      */
     refresh() {
         this.state = history.state;
@@ -252,7 +252,7 @@ class Router {
     }
 
     /**
-     * convert router params object to search string
+     * convert minarter params object to search string
      * @param {string} params
      */
     toSearch(params) {
@@ -299,7 +299,7 @@ class Router {
     }
 
     reload() {
-        router.route({url: router.pathname});
+        minarter.route({url: minarter.pathname});
     }
 
     init(initParam) {
@@ -337,8 +337,8 @@ class Router {
 
 if (window.layui) {
     layui.define(function (exports) {
-        exports('router', new Router())
+        exports('minarter', new Minarter())
     });
 } else {
-    window.router = new Router();
+    window.minarter = new Minarter();
 }

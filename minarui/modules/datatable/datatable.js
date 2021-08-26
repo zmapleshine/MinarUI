@@ -976,7 +976,6 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                  * 刷新宽度
                  */
                 flushWidth() {
-                    document.querySelector("#" + _that.el).style.width = window.innerWidth -70 +"px";
                     let body = document.querySelector("#" + _that.el + "-datatable");
                     for (let index = 0; index < _that.defines.length; index++) {
                         if (_that.defines[index].wordBreak) {

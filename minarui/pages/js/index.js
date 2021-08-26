@@ -2,17 +2,17 @@
     document.title = AppConfig.page.title || "MinarUI"
     var _idxPage = {
         initRoute: function () {
-            //init router
-            router.init(AppConfig.route);
+            //init minarter
+            minarter.init(AppConfig.route);
 
-            if (AppConfig.page.index && AppConfig.page.index.route && router.path.length === 0) {
-                router.route({
+            if (AppConfig.page.index && AppConfig.page.index.route && minarter.path.length === 0) {
+                minarter.route({
                     url: typeof AppConfig.page.index.route === "function" ? AppConfig.page.index.route() : AppConfig.page.index.route,
                     params: AppConfig.page.index.params
                 });
             }
             document.querySelectorAll("[route]").forEach(e => {
-                router.registRouteEvent(e);
+                minarter.registRouteEvent(e);
             });
         },
         initTopLinks: function () {
@@ -64,7 +64,7 @@
             document.querySelector("#minar-nav").innerHTML = content;
         },
     };
-    var preInitModulesList = ["minaruiExpands", 'router', 'MinarUI', 'element', 'jquery', 'spop', 'minare'];
+    var preInitModulesList = ["minaruiExpands", 'minarter', 'MinarUI', 'element', 'jquery', 'spop', 'minare'];
 
     MinarUIModulesDefinition(function () {
         layui.use(preInitModulesList, function () {

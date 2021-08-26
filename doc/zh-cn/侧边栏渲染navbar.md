@@ -12,7 +12,7 @@ navbar.render({
 	dynamic: true,
 	callback: function () {
 		//刷新路由链接
-		router.flushRouter();
+		minarter.flushRouter();
 		//保存默认菜单，用于刷新后默认加载该菜单
 		index.putMenus("lastestMenus", menus);
 		//设置菜单的选中效果
