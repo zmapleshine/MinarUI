@@ -32,6 +32,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
             this.handlesCondition = props.handlesCondition;
             //操作栏固定
             this.handleFixed = props.handleFixed === undefined ? false : props.handleFixed;
+            this.page = props.page === undefined ? {} : props.page
 
             //排序参数字段
             this.sortByParamName = props.sortByParamName || "sortBy";
@@ -438,7 +439,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         count: privateDefaultProps.page.total || privateDefaultProps.list.length,
                         theme: "#1E9FFF",
                         limit: privateDefaultProps.queryParam.pageSize,
-                        layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip'],
+                        layout: _that.page.layout || ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip'],
                         curr: privateDefaultProps.queryParam.pageIndex || 1,
                         jump: function (obj, first) {
                             if (first) {
