@@ -67,7 +67,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                 hasRequest: false,
                 singletonFlag: false,
                 formEl: this.formEl,
-                queryParam: {pageIndex: this.pageIndex || 1, pageSize: this.pageSize || 20},
+                queryParam: {pageIndex: this.page.pageIndex || 1, pageSize: this.page.pageSize || 20},
 
             };
             const layuiFormElements = ["select", "checkbox", "radio", "switch"];
@@ -434,6 +434,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                         document.querySelector("#" + _that.el).appendChild(pageDiv);
                     }
                     var laypage = layui.laypage;
+                    console.log(privateDefaultProps)
                     laypage.render({
                         elem: _that.el + "-page",
                         count: privateDefaultProps.page.total || privateDefaultProps.list.length,
@@ -1039,7 +1040,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                      * @returns {any}
                      */
                     let getQueryCacheObject = function () {
-                        let queryCacheCrypto = localStorage.getItem("DATATABLE_QUERY_CACHE");
+                        let queryCacheCrypto = sessionStorage.getItem("DATATABLE_QUERY_CACHE");
                         let decodeStr;
                         try {
                             decodeStr = layui.utils.string.b64_to_utf8((queryCacheCrypto || "").replace(/eyzmaple/g, "ey"));
@@ -1055,7 +1056,7 @@ layui.define(['utils', 'laypage', 'layer', 'req', 'utils', 'spop', 'form'], func
                      * @param queryCacheObject
                      */
                     let setQueryCacheObject = function (queryCacheObject) {
-                        localStorage.setItem("DATATABLE_QUERY_CACHE", layui.utils.string.utf8_to_b64(JSON.stringify(queryCacheObject)).replace(/ey/g, "eyzmaple"));
+                        sessionStorage.setItem("DATATABLE_QUERY_CACHE", layui.utils.string.utf8_to_b64(JSON.stringify(queryCacheObject)).replace(/ey/g, "eyzmaple"));
                     };
                     /**
                      * 获取当前查询缓存键
