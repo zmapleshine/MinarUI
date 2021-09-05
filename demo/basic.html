@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-<div class="minar-modules-line minar-flex-8-2">
+<div class="minar-modules-line minar-flex-8-2" id="test-basic">
 
     <div class="minar-module" style="height: 600px;overflow-y: auto">
 
@@ -272,9 +272,11 @@
         <button type="button" class="layui-btn layui-btn-sm layui-btn-normal"
                 onclick="renders.renderDocument()">使用 document.render
         </button>
+        <button type="button" class="layui-btn layui-btn-sm layui-btn-normal"
+                onclick="renders.renderDocumentFromTemplate()">从模板渲染
+        </button>
     </div>
 </div>
-
 
 <script>
     new minarui({
@@ -298,6 +300,9 @@
             }
         },
         renders: {
+            renderDocumentFromTemplate: function () {
+                document.render("#tmp-form", getData("data")).to("#test-basic")
+            },
             renderDocument: function () {
                 document.render("#form", getData("data"));
             },

@@ -49,7 +49,16 @@
         if (layui && layui.form) {
             layui.form.render();
         }
-        return element.innerHTML;
+        if (element instanceof HTMLTemplateElement) {
+            return {
+                to: function (el) {
+                    document.querySelector(el).innerHTML = element.innerHTML;
+                    if (layui && layui.form) {
+                        layui.form.render();
+                    }
+                }
+            };
+        }
     }
 
     //字符串模板函数
