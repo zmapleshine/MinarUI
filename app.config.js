@@ -15,7 +15,7 @@ var AppConfig = {
 
     //页面相关配置
     page: {
-        title:":: Enjoy your MinarUI ::",
+        title: ":: Enjoy your MinarUI ::",
         //顶部菜单配置
         topLinks: [
             {
@@ -35,6 +35,10 @@ var AppConfig = {
                     }
                 ]
             }, {
+                name: "基础组件测试",
+                route: "/demo/basic"
+            }
+            , {
                 name: "刷新页面",
                 icon: "layui-icon-404",
                 onclick: "javascript: location.href='/'"

@@ -1,8 +1,56 @@
 !function () {
 
-    layui.define(function (exports) {
+    layui && layui.define(function (exports) {
         exports('minaruiExpands', {})
     });
+
+    HTMLDocument.prototype.render = function (el, data, rule) {
+        var element = document.querySelector(el)
+        if (!element) {
+            return;
+        }
+        var content;
+        if (element instanceof HTMLTemplateElement) {
+            element = element.cloneNode(true);
+            content = element.content;
+        } else {
+            content = element;
+        }
+        var props = Object.getOwnPropertyNames(data);
+        for (var j = 0; j < props.length; j++) {
+            var prop = props[j];
+            prop = prop.replace("[", "\\[").replace("]", "\\]")
+            var formElement = content.querySelector("[name=" + prop + "]")
+            if (!formElement) {
+                continue;
+            }
+
+            var dataValue = data[prop];
+            dataValue = typeof dataValue === "function" ? dataValue(data) : dataValue;
+            var ruleValue = rule && rule[prop];
+            ruleValue = typeof ruleValue === "function" ? ruleValue(dataValue, data) : ruleValue;
+            if (ruleValue !== undefined) {
+                dataValue = ruleValue
+            }
+            if (formElement instanceof HTMLSelectElement) {
+                var option = formElement.querySelector("option[value='" + dataValue + "']")
+                option && (option.selected = true | option.setAttribute("selected", ""));
+            } else if (formElement.type === "checkbox") {
+                formElement.checked = true;
+                formElement.setAttribute("checked", "");
+            } else if (formElement.type === "radio") {
+                var checked = content.querySelector("input[type=radio][value='" + dataValue + "']");
+                checked && (checked.checked = true | checked.setAttribute("checked", ""))
+            } else {
+                formElement.value = dataValue;
+                formElement.setAttribute("value", dataValue)
+            }
+        }
+        if (layui && layui.form) {
+            layui.form.render();
+        }
+        return element.innerHTML;
+    }
 
     //字符串模板函数
     String.prototype.render = function (object, rule) {
@@ -64,15 +112,13 @@
                                         value: _value
                                     });
                                 }
-                            }
-                            else {
+                            } else {
                                 this.elements.push({
                                     key: _key,
                                     value: _value
                                 });
                             }
-                        }
-                        else {
+                        } else {
                             this.elements.push({
                                 key: _key,
                                 value: _value
@@ -89,15 +135,13 @@
                                         value: _value
                                     });
                                 }
-                            }
-                            else {
+                            } else {
                                 this.elements.push({
                                     key: _key,
                                     value: _value
                                 });
                             }
-                        }
-                        else {
+                        } else {
                             this.elements.push({
                                 key: _key,
                                 value: _value
@@ -114,8 +158,7 @@
                                     return true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
@@ -130,8 +173,7 @@
                                     return true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
@@ -144,8 +186,7 @@
                                     return this.elements[i].value;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             return null;
                         }
                     },
@@ -159,8 +200,7 @@
                                     return true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
@@ -181,8 +221,7 @@
                                     bln = true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
@@ -196,8 +235,7 @@
                                     bln = true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
@@ -211,8 +249,7 @@
                                     bln = true;
                                 }
                             }
-                        }
-                        catch (e) {
+                        } catch (e) {
                             bln = false;
                         }
                         return bln;
