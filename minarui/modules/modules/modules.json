@@ -16,7 +16,8 @@
     "region": "region/region",
     "cascadeSelector": "cascade-selector",
     "citySelector": "city-selector",
-    "navbar": "navbar/navbar"
+    "navbar": "navbar/navbar",
+    "minare": "minare.min"
   },
   "plugin": {
     "treetable": "treetable/treetable",
